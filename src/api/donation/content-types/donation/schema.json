@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "donations",
+  "info": {
+    "singularName": "donation",
+    "pluralName": "donations",
+    "displayName": "Donation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "currency": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::currency.currency"
+    },
+    "donatable": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::donatable.donatable",
+      "mappedBy": "donation"
+    },
+    "targetAmountInBigInteger": {
+      "type": "biginteger",
+      "required": true
+    },
+    "donatedAmountInBigInteger": {
+      "type": "biginteger",
+      "required": true
+    },
+    "key": {
+      "type": "uid",
+      "required": true
+    }
+  }
+}

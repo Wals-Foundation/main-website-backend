@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "communities",
+  "info": {
+    "singularName": "community",
+    "pluralName": "communities",
+    "displayName": "Community",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cause": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cause.cause"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "code": {
+      "type": "uid",
+      "required": true
+    },
+    "donatable": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::donatable.donatable"
+    }
+  }
+}

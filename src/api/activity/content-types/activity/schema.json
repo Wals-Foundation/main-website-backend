@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "activities",
+  "info": {
+    "singularName": "activity",
+    "pluralName": "activities",
+    "displayName": "Activity"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "budgetCurrency": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::currency.currency"
+    },
+    "budgetAmount": {
+      "type": "biginteger"
+    },
+    "community": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::community.community"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "donatable": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::donatable.donatable"
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "program": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::program.program"
+    },
+    "project": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project.project"
+    },
+    "startDate": {
+      "type": "date"
+    }
+  }
+}

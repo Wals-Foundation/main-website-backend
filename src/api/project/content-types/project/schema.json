@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Project"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "code": {
+      "type": "uid",
+      "required": true
+    },
+    "cause": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cause.cause"
+    },
+    "community": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::community.community"
+    },
+    "donatable": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::donatable.donatable"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "program": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::program.program"
+    }
+  }
+}

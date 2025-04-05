@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "causes",
+  "info": {
+    "singularName": "cause",
+    "pluralName": "causes",
+    "displayName": "Cause",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "impact": {
+      "type": "richtext"
+    },
+    "introduction": {
+      "type": "richtext",
+      "required": true
+    },
+    "problem": {
+      "type": "richtext"
+    },
+    "solution": {
+      "type": "richtext"
+    },
+    "district": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::district.district"
+    },
+    "location": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::location.location"
+    },
+    "region": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::region.region"
+    },
+    "images": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::image.image"
+    },
+    "heroes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::hero.hero"
+    }
+  }
+}

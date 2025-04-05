@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "main_menu_items",
+  "info": {
+    "singularName": "main-menu-item",
+    "pluralName": "main-menu-items",
+    "displayName": "Main Menu Item",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "isEnabled": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "destination": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
+    }
+  }
+}

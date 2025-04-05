@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "donatables",
+  "info": {
+    "singularName": "donatable",
+    "pluralName": "donatables",
+    "displayName": "Donatable",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "key": {
+      "type": "uid",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "community ",
+        "program",
+        "project",
+        "activity"
+      ],
+      "required": true
+    },
+    "donation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::donation.donation",
+      "inversedBy": "donatable"
+    }
+  }
+}

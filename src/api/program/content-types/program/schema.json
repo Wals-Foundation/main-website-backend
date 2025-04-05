@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "programs",
+  "info": {
+    "singularName": "program",
+    "pluralName": "programs",
+    "displayName": "Program",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "code": {
+      "type": "uid"
+    },
+    "cause": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cause.cause"
+    },
+    "communities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::community.community"
+    },
+    "donatable": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::donatable.donatable"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
