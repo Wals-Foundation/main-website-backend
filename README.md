@@ -2,4 +2,5 @@
 Contains Strapi application that provides Admin interface and REST APIs for WALS website content
 
 For guides on how to do things check the following 
+[Strapi Deployment Guide](https://docs.strapi.io/cms/deployment)
 [Strapi Documentation](https://docs.strapi.io)
