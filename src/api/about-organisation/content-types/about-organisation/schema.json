@@ -1,0 +1,54 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_organisations",
+  "info": {
+    "singularName": "about-organisation",
+    "pluralName": "about-organisations",
+    "displayName": "About Organisation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "organisation_approaches": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::organisation-approach.organisation-approach"
+    },
+    "organisation_mission": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext",
+      "required": true
+    },
+    "organisation_values": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::organisation-value.organisation-value"
+    },
+    "organisation_story": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext"
+    },
+    "organisation_vision": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext"
+    }
+  }
+}

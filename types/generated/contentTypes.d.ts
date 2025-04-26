@@ -369,6 +369,65 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAboutOrganisationAboutOrganisation
+  extends Struct.SingleTypeSchema {
+  collectionName: 'about_organisations';
+  info: {
+    displayName: 'About Organisation';
+    pluralName: 'about-organisations';
+    singularName: 'about-organisation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-organisation.about-organisation'
+    >;
+    organisation_approaches: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::organisation-approach.organisation-approach'
+    >;
+    organisation_mission: Schema.Attribute.RichText &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    organisation_story: Schema.Attribute.RichText &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    organisation_values: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::organisation-value.organisation-value'
+    >;
+    organisation_vision: Schema.Attribute.RichText &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
   collectionName: 'activities';
   info: {
@@ -794,6 +853,99 @@ export interface ApiMainMenuItemMainMenuItem
     text: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOrganisationApproachOrganisationApproach
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'organisation_approaches';
+  info: {
+    description: '';
+    displayName: 'Organisation Approach';
+    pluralName: 'organisation-approaches';
+    singularName: 'organisation-approach';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    explanation: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::organisation-approach.organisation-approach'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOrganisationValueOrganisationValue
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'organisation_values';
+  info: {
+    displayName: 'Organisation Value';
+    pluralName: 'organisation-values';
+    singularName: 'organisation-value';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    explanation: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::organisation-value.organisation-value'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1447,6 +1599,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::about-organisation.about-organisation': ApiAboutOrganisationAboutOrganisation;
       'api::activity.activity': ApiActivityActivity;
       'api::cause.cause': ApiCauseCause;
       'api::community.community': ApiCommunityCommunity;
@@ -1460,6 +1613,8 @@ declare module '@strapi/strapi' {
       'api::image.image': ApiImageImage;
       'api::location.location': ApiLocationLocation;
       'api::main-menu-item.main-menu-item': ApiMainMenuItemMainMenuItem;
+      'api::organisation-approach.organisation-approach': ApiOrganisationApproachOrganisationApproach;
+      'api::organisation-value.organisation-value': ApiOrganisationValueOrganisationValue;
       'api::page.page': ApiPagePage;
       'api::program.program': ApiProgramProgram;
       'api::project.project': ApiProjectProject;

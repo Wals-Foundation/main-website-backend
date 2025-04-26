@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "organisation_values",
+  "info": {
+    "singularName": "organisation-value",
+    "pluralName": "organisation-values",
+    "displayName": "Organisation Value"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "explanation": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
+    }
+  }
+}
