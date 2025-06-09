@@ -744,6 +744,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
 export interface ApiHeroHero extends Struct.CollectionTypeSchema {
   collectionName: 'heroes';
   info: {
+    description: '';
     displayName: 'Hero';
     pluralName: 'heroes';
     singularName: 'hero';
@@ -755,7 +756,11 @@ export interface ApiHeroHero extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    image: Schema.Attribute.Relation<'oneToOne', 'api::image.image'>;
+    image: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::website-image.website-image'
+    >;
+    image_old: Schema.Attribute.Relation<'oneToOne', 'api::image.image'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::hero.hero'> &
       Schema.Attribute.Private;
@@ -975,6 +980,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     page: Schema.Attribute.UID & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    relativeUrl: Schema.Attribute.String & Schema.Attribute.Unique;
     subheadline: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1084,6 +1090,40 @@ export interface ApiRegionRegion extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiWebsiteImageWebsiteImage
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'website_images';
+  info: {
+    description: '';
+    displayName: 'Website Image';
+    pluralName: 'website-images';
+    singularName: 'website-image';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::website-image.website-image'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.UID & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    source: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1619,6 +1659,7 @@ declare module '@strapi/strapi' {
       'api::program.program': ApiProgramProgram;
       'api::project.project': ApiProjectProject;
       'api::region.region': ApiRegionRegion;
+      'api::website-image.website-image': ApiWebsiteImageWebsiteImage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

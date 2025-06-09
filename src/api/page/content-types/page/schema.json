@@ -27,6 +27,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::hero.hero"
+    },
+    "relativeUrl": {
+      "type": "string",
+      "required": false,
+      "unique": true
     }
   }
 }

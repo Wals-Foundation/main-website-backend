@@ -4,17 +4,23 @@
   "info": {
     "singularName": "hero",
     "pluralName": "heroes",
-    "displayName": "Hero"
+    "displayName": "Hero",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "image": {
+    "image_old": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::image.image"
+    },
+    "image": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::website-image.website-image"
     }
   }
 }
