@@ -26,6 +26,10 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::page.page"
+    },
+    "position": {
+      "type": "integer",
+      "required": true
     }
   }
 }

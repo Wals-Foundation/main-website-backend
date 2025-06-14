@@ -21,6 +21,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::website-image.website-image"
+    },
+    "key": {
+      "type": "uid"
     }
   }
 }
