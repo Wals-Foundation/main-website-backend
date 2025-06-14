@@ -4,7 +4,8 @@
   "info": {
     "singularName": "activity",
     "pluralName": "activities",
-    "displayName": "Activity"
+    "displayName": "Activity",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -47,6 +48,10 @@
     },
     "startDate": {
       "type": "date"
+    },
+    "name": {
+      "type": "string",
+      "required": true
     }
   }
 }
