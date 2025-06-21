@@ -818,11 +818,11 @@ export interface ApiHeroHero extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    image: Schema.Attribute.Relation<
-      'oneToOne',
+    image_old: Schema.Attribute.Relation<'oneToOne', 'api::image.image'>;
+    images: Schema.Attribute.Relation<
+      'oneToMany',
       'api::website-image.website-image'
     >;
-    image_old: Schema.Attribute.Relation<'oneToOne', 'api::image.image'>;
     key: Schema.Attribute.UID;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::hero.hero'> &
@@ -1207,6 +1207,7 @@ export interface ApiWebsiteImageWebsiteImage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    hero: Schema.Attribute.Relation<'manyToOne', 'api::hero.hero'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

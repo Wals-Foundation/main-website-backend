@@ -26,6 +26,12 @@
     "name": {
       "type": "uid",
       "required": true
+    },
+    "hero": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::hero.hero",
+      "inversedBy": "images"
     }
   }
 }
