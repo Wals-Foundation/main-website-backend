@@ -491,6 +491,10 @@ export interface ApiCauseCause extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     district: Schema.Attribute.Relation<'oneToOne', 'api::district.district'>;
+    gallery: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::website-image.website-image'
+    >;
     heroes: Schema.Attribute.Relation<'oneToMany', 'api::hero.hero'>;
     impact: Schema.Attribute.RichText;
     introduction: Schema.Attribute.RichText & Schema.Attribute.Required;
@@ -508,10 +512,6 @@ export interface ApiCauseCause extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    website_images: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::website-image.website-image'
-    >;
   };
 }
 
