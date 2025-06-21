@@ -17,10 +17,11 @@
       "relation": "oneToOne",
       "target": "api::image.image"
     },
-    "image": {
+    "images": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::website-image.website-image"
+      "relation": "oneToMany",
+      "target": "api::website-image.website-image",
+      "mappedBy": "hero"
     },
     "key": {
       "type": "uid"
