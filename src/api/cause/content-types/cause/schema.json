@@ -45,10 +45,10 @@
       "relation": "oneToOne",
       "target": "api::region.region"
     },
-    "images": {
+    "website_images": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::image.image"
+      "target": "api::website-image.website-image"
     },
     "heroes": {
       "type": "relation",

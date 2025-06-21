@@ -20,8 +20,7 @@
     "images": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::website-image.website-image",
-      "mappedBy": "hero"
+      "target": "api::website-image.website-image"
     },
     "key": {
       "type": "uid"
