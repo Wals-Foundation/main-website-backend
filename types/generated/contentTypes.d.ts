@@ -492,7 +492,6 @@ export interface ApiCauseCause extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     district: Schema.Attribute.Relation<'oneToOne', 'api::district.district'>;
     heroes: Schema.Attribute.Relation<'oneToMany', 'api::hero.hero'>;
-    images: Schema.Attribute.Relation<'oneToMany', 'api::image.image'>;
     impact: Schema.Attribute.RichText;
     introduction: Schema.Attribute.RichText & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -509,6 +508,10 @@ export interface ApiCauseCause extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    website_images: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::website-image.website-image'
+    >;
   };
 }
 
@@ -1207,7 +1210,6 @@ export interface ApiWebsiteImageWebsiteImage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    hero: Schema.Attribute.Relation<'manyToOne', 'api::hero.hero'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
