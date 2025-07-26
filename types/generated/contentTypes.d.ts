@@ -821,9 +821,9 @@ export interface ApiHeroHero extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    image_old: Schema.Attribute.Relation<'oneToOne', 'api::image.image'>;
-    images: Schema.Attribute.Relation<
-      'oneToMany',
+    html: Schema.Attribute.Text;
+    image: Schema.Attribute.Relation<
+      'oneToOne',
       'api::website-image.website-image'
     >;
     key: Schema.Attribute.UID;
