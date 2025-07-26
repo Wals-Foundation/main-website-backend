@@ -12,18 +12,16 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "image_old": {
+    "image": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::image.image"
-    },
-    "images": {
-      "type": "relation",
-      "relation": "oneToMany",
       "target": "api::website-image.website-image"
     },
     "key": {
       "type": "uid"
+    },
+    "html": {
+      "type": "text"
     }
   }
 }
