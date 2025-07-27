@@ -4,7 +4,8 @@
   "info": {
     "singularName": "project",
     "pluralName": "projects",
-    "displayName": "Project"
+    "displayName": "Project",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -38,6 +39,13 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::program.program"
+    },
+    "featuredIndex": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "max": 5,
+      "min": 0
     }
   }
 }

@@ -29,6 +29,13 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::donatable.donatable"
+    },
+    "featuredIndex": {
+      "type": "integer",
+      "default": 0,
+      "required": true,
+      "max": 5,
+      "min": 0
     }
   }
 }

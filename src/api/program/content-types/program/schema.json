@@ -33,6 +33,13 @@
     "name": {
       "type": "string",
       "required": true
+    },
+    "featuredIndex": {
+      "type": "integer",
+      "default": 0,
+      "min": 0,
+      "max": 5,
+      "required": true
     }
   }
 }
