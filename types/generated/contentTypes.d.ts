@@ -1128,8 +1128,8 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
   attributes: {
     cause: Schema.Attribute.Relation<'oneToOne', 'api::cause.cause'>;
     code: Schema.Attribute.UID & Schema.Attribute.Required;
-    community: Schema.Attribute.Relation<
-      'oneToOne',
+    communities: Schema.Attribute.Relation<
+      'oneToMany',
       'api::community.community'
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -1156,7 +1156,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
-    program: Schema.Attribute.Relation<'oneToOne', 'api::program.program'>;
+    programs: Schema.Attribute.Relation<'oneToMany', 'api::program.program'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

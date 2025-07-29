@@ -21,9 +21,9 @@
       "relation": "oneToOne",
       "target": "api::cause.cause"
     },
-    "community": {
+    "communities": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::community.community"
     },
     "donatable": {
@@ -35,9 +35,9 @@
       "type": "string",
       "required": true
     },
-    "program": {
+    "programs": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::program.program"
     },
     "featuredIndex": {
