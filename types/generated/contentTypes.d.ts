@@ -968,6 +968,10 @@ export interface ApiOrganisationApproachOrganisationApproach
           localized: true;
         };
       }>;
+    icon: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::website-image.website-image'
+    >;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -992,6 +996,7 @@ export interface ApiOrganisationValueOrganisationValue
   extends Struct.CollectionTypeSchema {
   collectionName: 'organisation_values';
   info: {
+    description: '';
     displayName: 'Organisation Value';
     pluralName: 'organisation-values';
     singularName: 'organisation-value';
@@ -1014,6 +1019,10 @@ export interface ApiOrganisationValueOrganisationValue
           localized: true;
         };
       }>;
+    icon: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::website-image.website-image'
+    >;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

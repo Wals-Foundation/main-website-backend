@@ -4,7 +4,8 @@
   "info": {
     "singularName": "organisation-value",
     "pluralName": "organisation-values",
-    "displayName": "Organisation Value"
+    "displayName": "Organisation Value",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -32,6 +33,11 @@
         }
       },
       "type": "text"
+    },
+    "icon": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::website-image.website-image"
     }
   }
 }
