@@ -33,6 +33,11 @@
         }
       },
       "type": "text"
+    },
+    "icon": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::website-image.website-image"
     }
   }
 }
