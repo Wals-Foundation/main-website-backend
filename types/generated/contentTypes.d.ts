@@ -968,10 +968,13 @@ export interface ApiOrganisationApproachOrganisationApproach
           localized: true;
         };
       }>;
-    icon: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::website-image.website-image'
-    >;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1019,10 +1022,13 @@ export interface ApiOrganisationValueOrganisationValue
           localized: true;
         };
       }>;
-    icon: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::website-image.website-image'
-    >;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
