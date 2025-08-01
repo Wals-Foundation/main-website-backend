@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "organisation_partners",
+  "info": {
+    "singularName": "organisation-partner",
+    "pluralName": "organisation-partners",
+    "displayName": "Organisation Partner"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "link": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

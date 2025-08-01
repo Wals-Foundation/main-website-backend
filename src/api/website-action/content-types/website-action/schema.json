@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "website_actions",
+  "info": {
+    "singularName": "website-action",
+    "pluralName": "website-actions",
+    "displayName": "Website Action"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "link": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "secondaryBorder"
+      ],
+      "default": "primary",
+      "required": true
+    }
+  }
+}
