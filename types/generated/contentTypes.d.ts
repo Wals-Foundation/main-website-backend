@@ -373,6 +373,7 @@ export interface ApiAboutOrganisationAboutOrganisation
   extends Struct.SingleTypeSchema {
   collectionName: 'about_organisations';
   info: {
+    description: '';
     displayName: 'About Organisation';
     pluralName: 'about-organisations';
     singularName: 'about-organisation';
@@ -397,6 +398,10 @@ export interface ApiAboutOrganisationAboutOrganisation
     organisation_approaches: Schema.Attribute.Relation<
       'oneToMany',
       'api::organisation-approach.organisation-approach'
+    >;
+    organisation_impacts: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::organisation-impact.organisation-impact'
     >;
     organisation_mission: Schema.Attribute.RichText &
       Schema.Attribute.Required &
