@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "organisation_impacts",
+  "info": {
+    "singularName": "organisation-impact",
+    "pluralName": "organisation-impacts",
+    "displayName": "Organisation Impact"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "details": {
+      "type": "richtext"
+    },
+    "caption": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::website-image.website-image"
+    },
+    "number": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "get_involved_options",
+  "info": {
+    "singularName": "get-involved-option",
+    "pluralName": "get-involved-options",
+    "displayName": "Get Involved Option"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "details": {
+      "type": "richtext"
+    },
+    "action": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::website-action.website-action"
+    }
+  }
+}

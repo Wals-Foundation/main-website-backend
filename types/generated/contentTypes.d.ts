@@ -720,6 +720,34 @@ export interface ApiDonationDonation extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
+  collectionName: 'faqs';
+  info: {
+    displayName: 'FAQ';
+    pluralName: 'faqs';
+    singularName: 'faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    answer: Schema.Attribute.RichText & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    question: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFeatureFlagFeatureFlag extends Struct.CollectionTypeSchema {
   collectionName: 'feature_flags';
   info: {
@@ -775,6 +803,40 @@ export interface ApiGalleryItemGalleryItem extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::gallery-item.gallery-item'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGetInvolvedOptionGetInvolvedOption
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'get_involved_options';
+  info: {
+    displayName: 'Get Involved Option';
+    pluralName: 'get-involved-options';
+    singularName: 'get-involved-option';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    action: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::website-action.website-action'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    details: Schema.Attribute.RichText;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::get-involved-option.get-involved-option'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
@@ -989,6 +1051,74 @@ export interface ApiOrganisationApproachOrganisationApproach
           localized: true;
         };
       }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOrganisationImpactOrganisationImpact
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'organisation_impacts';
+  info: {
+    displayName: 'Organisation Impact';
+    pluralName: 'organisation-impacts';
+    singularName: 'organisation-impact';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    caption: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    details: Schema.Attribute.RichText;
+    image: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::website-image.website-image'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::organisation-impact.organisation-impact'
+    > &
+      Schema.Attribute.Private;
+    number: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOrganisationPartnerOrganisationPartner
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'organisation_partners';
+  info: {
+    displayName: 'Organisation Partner';
+    pluralName: 'organisation-partners';
+    singularName: 'organisation-partner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::organisation-partner.organisation-partner'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1234,6 +1364,45 @@ export interface ApiSocialMediaSocialMedia extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiWebsiteActionWebsiteAction
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'website_actions';
+  info: {
+    displayName: 'Website Action';
+    pluralName: 'website-actions';
+    singularName: 'website-action';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    label: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    link: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::website-action.website-action'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    type: Schema.Attribute.Enumeration<
+      ['primary', 'secondary', 'secondaryBorder']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'primary'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1792,20 +1961,25 @@ declare module '@strapi/strapi' {
       'api::district.district': ApiDistrictDistrict;
       'api::donatable.donatable': ApiDonatableDonatable;
       'api::donation.donation': ApiDonationDonation;
+      'api::faq.faq': ApiFaqFaq;
       'api::feature-flag.feature-flag': ApiFeatureFlagFeatureFlag;
       'api::gallery-item.gallery-item': ApiGalleryItemGalleryItem;
+      'api::get-involved-option.get-involved-option': ApiGetInvolvedOptionGetInvolvedOption;
       'api::global.global': ApiGlobalGlobal;
       'api::hero.hero': ApiHeroHero;
       'api::image.image': ApiImageImage;
       'api::location.location': ApiLocationLocation;
       'api::main-menu-item.main-menu-item': ApiMainMenuItemMainMenuItem;
       'api::organisation-approach.organisation-approach': ApiOrganisationApproachOrganisationApproach;
+      'api::organisation-impact.organisation-impact': ApiOrganisationImpactOrganisationImpact;
+      'api::organisation-partner.organisation-partner': ApiOrganisationPartnerOrganisationPartner;
       'api::organisation-value.organisation-value': ApiOrganisationValueOrganisationValue;
       'api::page.page': ApiPagePage;
       'api::program.program': ApiProgramProgram;
       'api::project.project': ApiProjectProject;
       'api::region.region': ApiRegionRegion;
       'api::social-media.social-media': ApiSocialMediaSocialMedia;
+      'api::website-action.website-action': ApiWebsiteActionWebsiteAction;
       'api::website-image.website-image': ApiWebsiteImageWebsiteImage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
