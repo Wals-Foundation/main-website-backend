@@ -1353,6 +1353,7 @@ export interface ApiRegionRegion extends Struct.CollectionTypeSchema {
 export interface ApiSocialMediaSocialMedia extends Struct.CollectionTypeSchema {
   collectionName: 'social_medias';
   info: {
+    description: '';
     displayName: 'Social Media';
     pluralName: 'social-medias';
     singularName: 'social-media';
@@ -1367,6 +1368,7 @@ export interface ApiSocialMediaSocialMedia extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.Required;
+    iconRawSvg: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
