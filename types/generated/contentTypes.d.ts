@@ -821,6 +821,7 @@ export interface ApiGetInvolvedOptionGetInvolvedOption
   extends Struct.CollectionTypeSchema {
   collectionName: 'get_involved_options';
   info: {
+    description: '';
     displayName: 'Get Involved Option';
     pluralName: 'get-involved-options';
     singularName: 'get-involved-option';
@@ -838,6 +839,7 @@ export interface ApiGetInvolvedOptionGetInvolvedOption
       Schema.Attribute.Private;
     details: Schema.Attribute.RichText;
     icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    iconRawSvg: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',

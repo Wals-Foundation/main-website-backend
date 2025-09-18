@@ -4,7 +4,8 @@
   "info": {
     "singularName": "get-involved-option",
     "pluralName": "get-involved-options",
-    "displayName": "Get Involved Option"
+    "displayName": "Get Involved Option",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,14 +13,15 @@
   "pluginOptions": {},
   "attributes": {
     "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "details": {
       "type": "richtext"
@@ -28,6 +30,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::website-action.website-action"
+    },
+    "iconRawSvg": {
+      "type": "text"
     }
   }
 }
