@@ -1044,6 +1044,12 @@ export interface ApiOrganisationApproachOrganisationApproach
           localized: false;
         };
       }>;
+    iconRawSvg: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1164,6 +1170,12 @@ export interface ApiOrganisationValueOrganisationValue
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
+        };
+      }>;
+    iconRawSvg: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
         };
       }>;
     locale: Schema.Attribute.String;
