@@ -445,11 +445,6 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    budgetAmount: Schema.Attribute.BigInteger;
-    budgetCurrency: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::currency.currency'
-    >;
     communities: Schema.Attribute.Relation<
       'oneToMany',
       'api::community.community'
