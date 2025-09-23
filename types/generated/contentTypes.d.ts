@@ -450,8 +450,8 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
       'oneToOne',
       'api::currency.currency'
     >;
-    community: Schema.Attribute.Relation<
-      'oneToOne',
+    communities: Schema.Attribute.Relation<
+      'oneToMany',
       'api::community.community'
     >;
     createdAt: Schema.Attribute.DateTime;
@@ -463,6 +463,7 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
       'api::donatable.donatable'
     >;
     endDate: Schema.Attribute.Date;
+    heroes: Schema.Attribute.Relation<'oneToMany', 'api::hero.hero'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -470,8 +471,8 @@ export interface ApiActivityActivity extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
-    program: Schema.Attribute.Relation<'oneToOne', 'api::program.program'>;
-    project: Schema.Attribute.Relation<'oneToOne', 'api::project.project'>;
+    programs: Schema.Attribute.Relation<'oneToMany', 'api::program.program'>;
+    projects: Schema.Attribute.Relation<'oneToMany', 'api::project.project'>;
     publishedAt: Schema.Attribute.DateTime;
     startDate: Schema.Attribute.Date;
     updatedAt: Schema.Attribute.DateTime;

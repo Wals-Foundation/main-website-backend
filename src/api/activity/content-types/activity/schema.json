@@ -20,9 +20,9 @@
     "budgetAmount": {
       "type": "biginteger"
     },
-    "community": {
+    "communities": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::community.community"
     },
     "description": {
@@ -36,14 +36,14 @@
     "endDate": {
       "type": "date"
     },
-    "program": {
+    "programs": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::program.program"
     },
-    "project": {
+    "projects": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::project.project"
     },
     "startDate": {
@@ -52,6 +52,11 @@
     "name": {
       "type": "string",
       "required": true
+    },
+    "heroes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::hero.hero"
     }
   }
 }
