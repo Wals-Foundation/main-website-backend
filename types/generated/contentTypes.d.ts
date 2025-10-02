@@ -842,6 +842,7 @@ export interface ApiGetInvolvedOptionGetInvolvedOption
       'api::get-involved-option.get-involved-option'
     > &
       Schema.Attribute.Private;
+    priority: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
