@@ -33,6 +33,9 @@
     },
     "iconRawSvg": {
       "type": "text"
+    },
+    "priority": {
+      "type": "integer"
     }
   }
 }
