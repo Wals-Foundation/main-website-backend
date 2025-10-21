@@ -8,5 +8,13 @@ export default {
         auth: false,
       },
     },
+    {
+      method: 'POST',
+      path: '/transactions/initialise',
+      handler: 'transactions.initialise',
+      config: {
+        auth: false,
+      },
+    },
   ],
 };
