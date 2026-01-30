@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "job_applications",
+  "info": {
+    "singularName": "job-application",
+    "pluralName": "job-applications",
+    "displayName": "Job Application"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "coverLetterFile": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "fullName": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "resumeFile": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "role": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "program_and_operations_manager",
+        "field_coordinator"
+      ]
+    },
+    "stage": {
+      "type": "enumeration",
+      "required": true,
+      "default": "applied",
+      "enum": [
+        "applied",
+        "initial_interview",
+        "final_interview",
+        "hired"
+      ]
+    }
+  }
+}
