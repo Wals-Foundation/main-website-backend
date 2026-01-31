@@ -13,6 +13,7 @@ export default {
     try {
       
       const emailConfig = await strapi.config.get('plugin.email') as any;
+
       const applicant = {
         name: recipient?.fullName,
         position: "Programme & Operations Manager",
@@ -25,16 +26,34 @@ export default {
       const compiledText = _.template(emailTemplate.text)({ applicant });
       const compiledHtml = _.template(emailTemplate.html)({ applicant });
 
-      // Send email
-      await strapi
-        .plugin("email")
-        .service("email")
-        .send({
+      // Send email via WALS API endpoint
+      const walsServer = process.env.WALS_API_SERVER || '';
+      if (!walsServer) {
+        strapi.log.warn('WALS_API_SERVER not configured; skipping sending job application email');
+      } else {
+        const sendEndpoint = `${walsServer.replace(/\/$/, '')}/send-email`;
+        const payload = {
           to: recipient?.email,
           subject: compiledSubject,
+          from: emailConfig?.providerOptions?.emailFrom || 'no-reply@walsfoundation.org',
+          from_name: emailConfig?.providerOptions?.emailFromName || 'WALS Foundation',
           text: compiledText,
           html: compiledHtml,
+        };
+
+        const res = await fetch(sendEndpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
         });
+
+        if (!res.ok) {
+          const bodyText = await res.text().catch(() => null);
+          throw new Error(`Failed to send email via WALS API: ${res.status} ${res.statusText} ${bodyText ?? ''}`);
+        }
+
+        strapi.log.info(`Job application email queued via WALS API to ${recipient?.email}`);
+      }
 
       strapi.log.info("Job application email sent to:", recipient);
     } catch (err) {
