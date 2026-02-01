@@ -1001,6 +1001,59 @@ export interface ApiImageImage extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiJobApplicationJobApplication
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'job_applications';
+  info: {
+    displayName: 'Job Application';
+    pluralName: 'job-applications';
+    singularName: 'job-application';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    coverLetterFile: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    fullName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::job-application.job-application'
+    > &
+      Schema.Attribute.Private;
+    phone: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    publishedAt: Schema.Attribute.DateTime;
+    resumeFile: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
+    role: Schema.Attribute.Enumeration<
+      ['program_and_operations_manager', 'field_coordinator']
+    > &
+      Schema.Attribute.Required;
+    stage: Schema.Attribute.Enumeration<
+      ['applied', 'initial_interview', 'final_interview', 'hired']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'applied'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
   collectionName: 'locations';
   info: {
@@ -2054,6 +2107,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::hero.hero': ApiHeroHero;
       'api::image.image': ApiImageImage;
+      'api::job-application.job-application': ApiJobApplicationJobApplication;
       'api::location.location': ApiLocationLocation;
       'api::main-menu-item.main-menu-item': ApiMainMenuItemMainMenuItem;
       'api::organisation-approach.organisation-approach': ApiOrganisationApproachOrganisationApproach;
