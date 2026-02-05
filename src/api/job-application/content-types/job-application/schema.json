@@ -31,6 +31,19 @@
       "required": true,
       "unique": true
     },
+    "interviewLink": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "stage"
+            },
+            "applied"
+          ]
+        }
+      }
+    },
     "phone": {
       "type": "string",
       "required": true,
@@ -65,6 +78,12 @@
         "final_interview",
         "hired"
       ]
+    },
+    "lastSentInterviewLink": {
+      "type": "string"
+    },
+    "interviewEmailSentAt": {
+      "type": "datetime"
     }
   }
 }
