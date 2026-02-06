@@ -1025,6 +1025,9 @@ export interface ApiJobApplicationJobApplication
     fullName: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    interviewEmailSentAt: Schema.Attribute.DateTime;
+    interviewLink: Schema.Attribute.String;
+    lastSentInterviewLink: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
