@@ -102,6 +102,9 @@ We would like to invite you to an initial interview as the next step in our recr
 Interview link:
 <%= interview.link %>
 
+Before your interview, we'd like to invite you to learn more about our organisation and mission:
+https://docs.google.com/document/d/1X5_vG81aMaV-NYQAnv6a1-Ey0fmazfHlTNoHMYpLKaA
+
 Warm regards,
 WALS Foundation Team`,
   html: `
@@ -162,6 +165,14 @@ WALS Foundation Team`,
 
                 <p style="text-align:center; margin-top:32px;">
                   <a href="<%= interview.link %>" class="btn">Choose Interview Time</a>
+                </p>
+
+                <p class="paragraph" style="margin-top: 32px; border-top: 1px solid #e5e7eb; padding-top: 24px;">
+                  Before your interview, we'd like to invite you to learn more about our organisation and mission:
+                </p>
+
+                <p style="text-align:center; margin-top:16px;">
+                  <a href="https://docs.google.com/document/d/1X5_vG81aMaV-NYQAnv6a1-Ey0fmazfHlTNoHMYpLKaA" class="btn">Learn About WALS</a>
                 </p>
               </td>
             </tr>
