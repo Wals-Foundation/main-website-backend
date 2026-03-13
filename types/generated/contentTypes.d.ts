@@ -1022,6 +1022,17 @@ export interface ApiJobApplicationJobApplication
     email: Schema.Attribute.Email &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    emailSentFor: Schema.Attribute.Enumeration<
+      [
+        'applied',
+        'initial_interview',
+        'final_interview',
+        'hired',
+        'rejected',
+        'rejected_with_feedback',
+      ]
+    >;
+    feedbackLink: Schema.Attribute.String;
     fullName: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
@@ -1047,7 +1058,14 @@ export interface ApiJobApplicationJobApplication
     > &
       Schema.Attribute.Required;
     stage: Schema.Attribute.Enumeration<
-      ['applied', 'initial_interview', 'final_interview', 'hired']
+      [
+        'applied',
+        'initial_interview',
+        'final_interview',
+        'hired',
+        'rejected',
+        'rejected_with_feedback',
+      ]
     > &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'applied'>;

@@ -26,6 +26,19 @@
       "required": true,
       "unique": true
     },
+    "feedbackLink": {
+      "type": "string",
+      "conditions": {
+        "visible": {
+          "==": [
+            {
+              "var": "stage"
+            },
+            "rejected_with_feedback"
+          ]
+        }
+      }
+    },
     "fullName": {
       "type": "string",
       "required": true,
@@ -76,7 +89,9 @@
         "applied",
         "initial_interview",
         "final_interview",
-        "hired"
+        "hired",
+        "rejected",
+        "rejected_with_feedback"
       ]
     },
     "lastSentInterviewLink": {
@@ -84,6 +99,17 @@
     },
     "interviewEmailSentAt": {
       "type": "datetime"
+    },
+    "emailSentFor": {
+      "type": "enumeration",
+      "enum": [
+        "applied",
+        "initial_interview",
+        "final_interview",
+        "hired",
+        "rejected",
+        "rejected_with_feedback"
+      ]
     }
   }
 }
