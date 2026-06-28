@@ -99,8 +99,6 @@ async function pingGoogleAppsScript(resource?: string | null): Promise<void> {
       signal: controller.signal,
     });
 
-    strapi.log.info(`Google ping body: ${JSON.stringify(body)} & response is ${response.status} ${response.statusText}`);
-
     if (!response.ok) {
       const bodyText = await response.text().catch(() => null);
       throw new Error(`Google Apps Script ping failed with ${response.status}${bodyText ? `: ${bodyText}` : ''}`);
