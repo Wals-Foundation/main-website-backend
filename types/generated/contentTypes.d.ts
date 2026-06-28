@@ -663,7 +663,7 @@ export interface ApiCurrencyCurrency extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    code: Schema.Attribute.Enumeration<['GHS', 'USD']> &
+    code: Schema.Attribute.Enumeration<['GHS', 'USD', 'EUR']> &
       Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

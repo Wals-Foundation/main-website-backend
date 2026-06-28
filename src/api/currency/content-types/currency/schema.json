@@ -14,11 +14,12 @@
   "attributes": {
     "code": {
       "type": "enumeration",
+      "required": true,
       "enum": [
         "GHS",
-        "USD"
-      ],
-      "required": true
+        "USD",
+        "EUR"
+      ]
     }
   }
 }

@@ -19,6 +19,7 @@
     "@strapi/provider-email-nodemailer": "^5.34.0",
     "@strapi/strapi": "5.31.3",
     "fs-extra": "^10.0.0",
+    "googleapis": "^173.0.0",
     "mime-types": "^2.1.27",
     "mysql2": "3.9.8",
     "pg": "^8.16.3",
